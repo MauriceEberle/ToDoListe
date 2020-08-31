@@ -39,7 +39,6 @@ namespace ToDoListe
     {
         public List<Listenobjekt> ListenObjekte = new List<Listenobjekt>()
         {
-
         };
         public string path = @"..\..\Speicher\Speicher.txt";
         public MainWindow()
@@ -58,7 +57,6 @@ namespace ToDoListe
                 ListenObjekte.Add(newListenobjekt);
                 text_input.Text = "";
                 Update();
-
             }
         }
 
@@ -69,6 +67,7 @@ namespace ToDoListe
             if (index != -1)
             {
                 ListenObjekte.RemoveAt(index);
+                text_input.Text = "";
                 Update();
             }
 
