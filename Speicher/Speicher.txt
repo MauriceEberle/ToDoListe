@@ -1,5 +1,4 @@
+False~Gehen
+False~Laufen
+False~Springen mit Luisa
 False~Einkaufen
-False~Lernen
-False~Kochen
-False~Waschen
-False~Kleidung kaufen
