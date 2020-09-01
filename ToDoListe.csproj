@@ -97,8 +97,5 @@
   <ItemGroup>
     <Resource Include="Speicher\Speicher.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Speicher\logo.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
