@@ -1,5 +1,0 @@
-False~Einkaufen
-False~Lernen
-False~Kochen
-False~Waschen
-False~Kleidung kaufen

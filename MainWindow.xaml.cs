@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -30,17 +31,12 @@ namespace ToDoListe
         public bool IsChecked { get; set; }
         public string Text { get; set; }
 
-        public override string ToString()
-        {
-            return $"{IsChecked.ToString()}~{Text}";
-        }
     }
     public partial class MainWindow : Window
     {
-        public List<Listenobjekt> ListenObjekte = new List<Listenobjekt>()
-        {
-        };
-        public string path = @"..\..\Speicher\Speicher.txt";
+        public List<Listenobjekt> ListenObjekte = new List<Listenobjekt>();
+
+        public string path = @"..\..\Speicher\Speicher.json";
         public MainWindow()
         {
             InitializeComponent();
@@ -99,27 +95,30 @@ namespace ToDoListe
         private void Update()
         {
             ToDoBox.Items.Refresh();
-            using (StreamWriter sw = File.CreateText(path))
+
+            JsonSerializer serializer = new JsonSerializer();
+            serializer.Formatting = Formatting.Indented;
+
+            using (StreamWriter sw = new StreamWriter(path))
             {
-                foreach (var listenObjekt in ListenObjekte)
+                using (JsonWriter writer = new JsonTextWriter(sw))
                 {
-                    sw.WriteLine(listenObjekt.ToString());
+                    serializer.Serialize(writer, ListenObjekte);
                 }
             }
         }
 
         private void GetToDos()
         {
-            using (StreamReader sr = File.OpenText(path))
+            string json;
+            using (StreamReader sr = new StreamReader(path))
             {
-                string toDoContent;
-                while ((toDoContent = sr.ReadLine()) != null)
-                {
-                    string[] newList = toDoContent.Split('~');
-                    bool isChecked = Convert.ToBoolean(newList[0]);
-                    var listenObjekt = new Listenobjekt(isChecked, newList[1]);
-                    ListenObjekte.Add(listenObjekt);
-                }
+                json = sr.ReadToEnd();
+            }
+            ListenObjekte = JsonConvert.DeserializeObject<List<Listenobjekt>>(json);
+            if(ListenObjekte == null)
+            {
+                ListenObjekte = new List<Listenobjekt>();
             }
         }
 
