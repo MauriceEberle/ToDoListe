@@ -17,21 +17,6 @@ using System.Windows.Shapes;
 
 namespace ToDoListe
 {
-    /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
-    /// </summary>
-    public class Listenobjekt
-    {
-        public Listenobjekt(bool isChecked, string text)
-        {
-            IsChecked = isChecked;
-            Text = text;
-        }
-
-        public bool IsChecked { get; set; }
-        public string Text { get; set; }
-
-    }
     public partial class MainWindow : Window
     {
         public List<Listenobjekt> ListenObjekte = new List<Listenobjekt>();
@@ -121,7 +106,6 @@ namespace ToDoListe
                 ListenObjekte = new List<Listenobjekt>();
             }
         }
-
         private void ToDoBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = ToDoBox.SelectedIndex;
@@ -130,5 +114,10 @@ namespace ToDoListe
                 text_input.Text = ListenObjekte[index].Text;
             }
         }
+
+    }
+    public static class ToDoMethods
+    {
+
     }
 }
