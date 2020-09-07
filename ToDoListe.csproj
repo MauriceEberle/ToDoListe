@@ -102,5 +102,8 @@
   <ItemGroup>
     <None Include="Speicher\Speicher.json" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Speicher\Download.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
