@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToDoListe"
         mc:Ignorable="d"
-        Title="MainWindow" Height="750" Width="750"
+        Title="MainWindow" Height="1000" Width="1000"
         FontFamily="Montserrat">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -31,7 +31,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Label Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Column="4" Grid.Row="0">
-            <Image Source="Speicher\logo.png" Width="auto" Height="auto"></Image>
+            <Image Source="C:\Users\meberle\source\ToDoListe\img\Download.png" Width="auto" Height="auto"></Image>
         </Label>
 
         <ListBox x:Name="ToDoBox" Grid.Row="2" Grid.Column="1" SelectionChanged="ToDoBox_SelectionChanged" Grid.ColumnSpan="4" Grid.RowSpan="5" Opacity="70" BorderBrush="#FFFF8D04" BorderThickness="3">
@@ -46,16 +46,17 @@
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" x:Name="list_field">
                         <CheckBox x:Name="checkbox" IsChecked="{Binding IsChecked}" Margin="5,10,15,10"></CheckBox>
-                        <TextBlock x:Name="text" TextWrapping="WrapWithOverflow" Text="{Binding Text}" Foreground="White" FontWeight="Bold" FontSize="13" Margin="5,10,15,10"></TextBlock>
+                        <TextBlock x:Name="text" TextWrapping="Wrap" Width="300" Text="{Binding Text}" Foreground="White" FontWeight="Bold" FontSize="13" Margin="5,10,15,10"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
         <Button x:Name="btn_delete" Click="btn_delete_Click" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" Background="Silver" Foreground="Red" BorderBrush="Red" BorderThickness="3" Height="50" Margin="10,0">DELETE</Button>
-        <Button x:Name="btn_deleteAll" Click="btn_deleteAll_Click" Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="2" Background="Silver" Foreground="Red" BorderBrush="Red" BorderThickness="3" Height="50" Margin="10,0">CLEAR</Button>
-        <Button x:Name="btn_change" Click="btn_change_Click" Grid.Column="7" Grid.ColumnSpan="2" Grid.Row="6" Background="Silver" Foreground="Green" BorderBrush="Green" BorderThickness="3" Height="50" Margin="0,30,15,10">CHANGE</Button>
-        <Button x:Name="btn_add" Click="btn_add_Click" Grid.Column="7" Grid.ColumnSpan="2" Grid.Row="7" Background="Silver" Foreground="Green" BorderBrush="Green" BorderThickness="3" Height="50" Margin="0,0,15,0">ADD</Button>
-        <TextBox x:Name="text_input" Grid.Row="3" Grid.RowSpan="3" Grid.Column="6" Grid.ColumnSpan="4" Padding="50" Margin="0,0,25,0" TextWrapping="Wrap" FontSize="20" BorderBrush="#FFFF8D04" BorderThickness="3"/>
+        <Button x:Name="btn_deleteAll" Click="btn_deleteAll_Click" Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="2" Background="Silver" Foreground="Red" BorderBrush="Red" BorderThickness="3" Height="50" Margin="10,0">DELETE All FINISHED</Button>
+        <Button x:Name="btn_change" Click="btn_change_Click" Grid.Column="7" Grid.ColumnSpan="2" Grid.Row="6" Background="Silver" Foreground="Green" BorderBrush="Green" BorderThickness="3" Height="50" Margin="0,50,0,0">CHANGE</Button>
+
+        <Button x:Name="btn_add" Click="btn_add_Click" Grid.Column="7" Grid.ColumnSpan="2" Grid.Row="7" Background="Silver" Foreground="Green" BorderBrush="Green" BorderThickness="3" Height="50" Margin="0,0,0,0">ADD</Button>
+        <TextBox MaxLength="180" AcceptsReturn="True" x:Name="text_input" Grid.Row="3" Grid.RowSpan="3" Grid.Column="6" Grid.ColumnSpan="4" Padding="50" Margin="0,0,25,0" TextWrapping="Wrap" FontSize="20" BorderBrush="#FFFF8D04" BorderThickness="3"/>
         <Label Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" Margin="0, 40,0,0">ToDo-Liste</Label>
         <Label Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" Margin="0, 40,25,0">Eingabe:</Label>
     </Grid>
