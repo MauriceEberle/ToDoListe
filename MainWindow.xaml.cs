@@ -32,7 +32,7 @@ namespace ToDoListe
 
         public override string ToString()
         {
-            return $"{IsChecked.ToString()}~{Text}";
+            return $"{IsChecked}~{Text}";
         }
     }
     public partial class MainWindow : Window

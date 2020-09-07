@@ -1,4 +1,3 @@
-False~Gehen
-False~Laufen
-False~Springen mit Luisa
+False~Fliegen
+False~Hallo
 False~Einkaufen
